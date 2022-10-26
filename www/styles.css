@@ -1,0 +1,20 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+details {
+  font: 16px "Open Sans", Calibri, sans-serif;
+  width: 620px;
+}
+
+details > summary {
+  cursor: pointer;
+  display: list-item;
+  padding: 1rem;
+}
+
+
+details[open] > summary {
+  background-color: #5bc0de;
+}
