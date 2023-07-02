@@ -2,14 +2,17 @@ server <- function(input, output) {
   
   output$die_dot <- renderPlot({
     validate(
-      need(input$dest, label = "Numbers")
+      #need(input$dest, label = "Multiple Numbers"),
+      need(length(input$dest) > 1, label = "Multiple Numbers")
     )
     
     data.frame(
       choices = (as.numeric(input$dest))
     ) |>
       ggplot(aes(x = choices)) +
-      geom_dotplot(binwidth = 1, method = "histdot", dotsize = 0.1, )
+      geom_bar() +
+      # not a fan of .5 in what should be an integer scale
+      scale_y_continuous(breaks = function(x) unique(floor(pretty(seq(0, (max(x) + 1) * 1.1)))))
   })
   
   

@@ -11,6 +11,7 @@ source("R/ci.R")
 # 'reset' seed
 set.seed(NULL)
 
+# markdown > details arrow icon
 icon_list <- function(x){
   lapply(
     x,
